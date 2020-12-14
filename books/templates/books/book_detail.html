@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<p>Название: {{ lol.name }}</p>
+	<p>Автор: {{ book.author}}</p>
+	<p>Жанр: {{ book.genre }}</p>
+	<p>Страна: {{ book.country }}</p>
+	{% if book.started_date %}<p>Начал(-а) читать в {{ book.started_date }}</p> {% endif %}
+	{% if book.finished_date %}<p>Закончил читать в {{ book.finished_date }}</p> {% endif %}
+	{% if book.finished_date %}<p>Послевкусие от книги: {{ book.review }}</p>
+	{% endif %}
+
+	<p>Цитата: </p>
+	{% if quote_txt %}<p>xex {{ quote_txt }}</p>{% endif %}
+	<p>{{ kek }}</p>
+	<p>{{ time }}</p>
+	<a href="/update/{{ book.id }}">Изменить</a>
+	<a href="/books">Назад в список книг</a>
+	<p></p>
+	<a href="/">В главную страницу</a>
+</body>
+</html>

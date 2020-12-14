@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Следить за чтением</h1>
+
+	<div>
+		<h3>Поиск фильмов</h3>
+		<form action="{% url 'search' %}" method="get">
+			<input type="search" placeholder="Введите название" name="q" required="">
+			<button type="submit">
+				<span aria-hidden="true"></span>
+			</button>
+		</form>
+	</div>
+
+	{% if user.is_authenticated %}
+		<h3><a href="books">Ваш список книг</a></h3>
+	{% endif %}
+	<a href="allbooks">Все книги</a>
+	<a href="create">Создать</a>
+	<p>Ваш сайт посетил {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+	<h2><a href="/admin">Админ панель</a></h2>
+	
+	<ul class="sidebar-nav">
+	{% if user.is_authenticated %}
+		<li>User: {{ user.get_username }}</li>
+
+		<li><a href="{% url 'logout' %}?next={{ request.path }}">Выйти</a></li>
+	{% else %}
+		<li><a href="{% url 'login' %}?next={{ request.path }}">Войти</a></li>
+	{% endif %}
+	</ul>
+
+</body>
+</html>

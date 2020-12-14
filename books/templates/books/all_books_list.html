@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% for book in all_books_list %}
+		<h3><a href="/books/{{ book.id }}">{{ book.id }}) {{ book.name }}</a></h3>
+
+	{% endfor %}
+	</ul>
+	<h4><a href="/">Вернуться на главный сайт</a></h4>
+</body>
+</html>
